@@ -1,0 +1,4 @@
+{
+  "SERVER": "http://api.openweathermap.org/data/2.5/weather",
+  "API_KEY": "522b69877add24a04e4ae4fb87372c30"
+}
