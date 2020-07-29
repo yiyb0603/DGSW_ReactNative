@@ -5,7 +5,8 @@ import Home from '../../components/Home';
 import { IWeatherResponseType, IWeatherObject } from '../../types/WeatherType';
 import { weatherStyles } from '../../Designs/WeatherStyle';
 import * as Location from 'expo-location';
-import { Alert, ActivityIndicator, StyleSheet } from 'react-native';
+import { Alert } from 'react-native';
+import Loading from '../../components/Loading';
 
 const HomeContainer = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -66,19 +67,10 @@ const HomeContainer = () => {
   return (
     <>
       {
-        isLoading ? <ActivityIndicator size="large" style ={styles.containers} />
-        : <Home weatherInfo ={weatherInfo} isLoading ={isLoading} />
+        isLoading ? <Loading /> : <Home weatherInfo ={weatherInfo} />
       }
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  containers: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-});
 
 export default HomeContainer;
