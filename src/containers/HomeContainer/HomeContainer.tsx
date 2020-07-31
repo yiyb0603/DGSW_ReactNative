@@ -10,7 +10,7 @@ import Loading from '../../components/Loading';
 
 const HomeContainer = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [weatherInfo, setWeatherInfo] = useState<any>({
+  const [weatherInfo, setWeatherInfo] = useState<IWeatherObject>({
     feels_like: 0,
     temp: 0,
     temp_max: 0,
@@ -25,9 +25,9 @@ const HomeContainer = () => {
 
   const requestGetLocations = useCallback(async () => {
     await Location.requestPermissionsAsync();
-    const location: any = await Location.getCurrentPositionAsync();
+    const location: Location.LocationData = await Location.getCurrentPositionAsync();
 
-    const { latitude, longitude }: any = location.coords;
+    const { latitude, longitude }: { latitude: number, longitude: number; } = location.coords;
     await requestGetWeathers(latitude, longitude);
   }, []);
 

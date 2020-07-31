@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Dimensions, ActivityIndicator } from 'react-native';
-import { IFindWeatherTypes } from 'types/WeatherType';
+import { IWeatherObject } from 'types/WeatherType';
 import { LinearGradient } from 'expo-linear-gradient';
 import { MaterialCommunityIcons, AntDesign } from '@expo/vector-icons';
 import { IHomeStyleTypes } from 'types/StyleTypes';
@@ -8,11 +8,11 @@ import { StatusBar } from 'expo-status-bar';
 
 const { width, height }: { width: number, height: number } = Dimensions.get('screen');
 interface HomeTypes {
-  weatherInfo: IFindWeatherTypes;
+  weatherInfo: IWeatherObject;
 }
 
 const Home = ({ weatherInfo } : HomeTypes) => {
-  const { iconName, title, subtitle, temp, temp_max, temp_min, feels_like }: IFindWeatherTypes = weatherInfo;
+  const { iconName, title, subtitle, temp, temp_max, temp_min, feels_like }: IWeatherObject = weatherInfo;
   const { backgroundStyle, containers, iconText, temperatureText, subtitleText, minMaxContainer,
     topNav, topNavContents }: IHomeStyleTypes = styles;
   
@@ -26,7 +26,7 @@ const Home = ({ weatherInfo } : HomeTypes) => {
         </View>
 
         <View style ={containers}>
-          <MaterialCommunityIcons name ={iconName} style ={iconText} />
+          <MaterialCommunityIcons name ={iconName!} style ={iconText} />
           <Text style ={temperatureText}>{temp}ºC</Text>
           <Text style ={subtitleText}>{subtitle}</Text>
 

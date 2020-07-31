@@ -39,22 +39,15 @@ export interface IWeatherResponseType {
   };
 };
 
-export interface IFindWeatherTypes {
-  iconName: string;
-  title: string;
-  subtitle: string;
-  temp: number;
-  temp_max: number;
-  temp_min: number;
-  feels_like: number;
-}
-
 export interface IWeatherObject {
-  feels_like: number;
-  temp: number;
-  temp_max: number;
-  temp_min: number;
-  main: string;
+  feels_like?: number;
+  temp?: number;
+  temp_max?: number;
+  temp_min?: number;
+  main?: string;
+  iconName?: string;
+  title?: string;
+  subtitle?: string;
 }
 
 interface IWeatherType {
